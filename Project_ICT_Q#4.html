@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unit Converter</title>
+  <style>
+    body {
+      font-family: Consolas;, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #8ba3b5;
+    }
+
+    h1 {
+      text-align: center;
+      color: #c3dce3;
+    }
+
+    label {
+      font-weight: bold;
+      color: #c3dce3;
+    }
+
+    .input-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .input-container input[type="number"],
+    .input-container input[type="text"] {
+      width: 150px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .input-container button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: #c3dce3;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .results-container {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .results-container label {
+      width: 120px;
+      color: #333;
+    }
+
+    .results-container input[type="text"] {
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      color: #333;
+    }
+  </style>
+  <script>
+    function convertLength() {
+      var input = parseFloat(document.getElementById("millimeters").value);
+      var centimeters = input / 10;
+      var meters = input / 1000;
+      var kilometers = input / 1000000;
+
+      document.getElementById("centimeters").value = centimeters;
+      document.getElementById("meters").value = meters;
+      document.getElementById("kilometers").value = kilometers;
+    }
+  </script>
+</head>
+<body>
+  <h1>Unit Converter</h1>
+
+  <div class="input-container">
+    <label for="millimeters">Millimeters:</label>
+    <input type="number" id="millimeters" />
+    <button onclick="convertLength()">Convert !</button>
+  </div>
+
+  <div class="results-container">
+    <h2>Results:</h2>
+    <div class="input-container">
+      <label for="centimeters">Centimeters:</label>
+      <input type="text" id="centimeters" disabled />
+    </div>
+    <div class="input-container">
+      <label for="meters">Meters:</label>
+      <input type="text" id="meters" disabled />
+    </div>
+    <div class="input-container">
+      <label for="kilometers">Kilometers:</label>
+      <input type="text" id="kilometers" disabled />
+    </div>
+  </div>
+</body>
+</html>
